@@ -2,14 +2,22 @@ package com.curso.udemy.sistemadepedidos.domain;
 
 import java.io.Serializable;
 
+import javax.annotation.Generated;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Categoria implements Serializable {
  
     private static final long serialVersionUID = 1L; 
 
-private Integer id; 
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY) // Tipo da geração da PK(primary key)
+
+    private Integer id;
+
 private String nome; 
 
 public Categoria(){
@@ -20,8 +28,6 @@ public Categoria(Integer id, String nome) {
     this.id = id;
     this.nome = nome;
 }
-
-
 
 public Integer getId() {
     return id;
